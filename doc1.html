@@ -3,65 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Café Menu</title>
+    <title>Café</title>
     <style>
-        html, body {
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --primary-bg: white;
+            --primary-text: #ffffff; /* Changed to white */
+            --secondary-bg: #003366; /* Dark blue */
+            --button-bg: #ffffff; /* Changed to white */
+            --button-text: #000000; /* Changed to black */
+            --hover-bg: #f0f0f0; /* Light grey for hover */
+            --highlight-color: #003366;
+        }
+
+        body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Poppins', sans-serif;
+            background: var(--primary-bg);
+            color: var(--primary-text); /* Text color set to white */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            text-align: center;
+            transition: background 0.3s, color 0.3s;
         }
-        h1 {
-            color: #333;
+        .logo {
+            width: 120px;
             margin-bottom: 20px;
         }
         .container {
             width: 90%;
             max-width: 800px;
-            background-color: #fff;
+            background: var(--secondary-bg);
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            text-align: center;
-        }
-        iframe {
-            width: 100%;
-            height: 500px;
-            border: none;
-            margin-top: 20px;
-            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            margin-top: 150px;
+            color: var(--primary-text); /* Ensure text inside container is white */
         }
         .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
+            display: block;
+            width: 200px;
+            margin: 10px auto;
+            padding: 12px;
+            background: var(--button-bg); /* White background */
+            color: var(--button-text); /* Black text */
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 30px;
             font-size: 16px;
+            font-weight: 500;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            border: 2px solid var(--highlight-color);
         }
         .button:hover {
-            background-color: #0056b3;
+            background: var(--hover-bg); /* Light grey on hover */
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .social-icons a {
+            background: var(--highlight-color);
+            padding: 10px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            transition: all 0.3s ease;
+        }
+        .social-icons img {
+            width: 22px;
+            height: 22px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <img src="YOUR_LOGO_URL_HERE" alt="Café Logo" class="logo">
+    
+    <div class="container" id="landingPage">
+        <h1>Welcome to Our Café</h1>
+        <p>Choose an option:</p>
+        <button class="button" onclick="showMenu()">View Menu</button>
+        <button class="button" onclick="showLinks()">View Links</button>
+    </div>
+    
+    <div class="container" id="menuPage" style="display:none;">
         <h1>Café Menu</h1>
         <p>Click the button below to view the PDF menu.</p>
-        <a href="#" class="button" onclick="loadPdf()">View PDF</a>
-        <iframe id="pdfViewer" style="display:none;"></iframe>
+        <button class="button" onclick="loadPdf()">View PDF</button>
+        <iframe id="pdfViewer" style="width:100%; height:500px; border:none; display:none;"></iframe>
+        <button class="button" onclick="goBack()">Back</button>
     </div>
 
+    <div class="container" id="linksPage" style="display:none;">
+        <h1>Our Links</h1>
+        <p>Follow us on social media:</p>
+        <div class="social-icons">
+            <a href="https://instagram.com" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+            </a>
+            <a href="https://facebook.com" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111392.png" alt="Facebook">
+            </a>
+        </div>
+        <button class="button" onclick="goBack()">Back</button>
+    </div>
+    
     <script>
+        function showMenu() {
+            document.getElementById('landingPage').style.display = 'none';
+            document.getElementById('menuPage').style.display = 'block';
+        }
+
+        function showLinks() {
+            document.getElementById('landingPage').style.display = 'none';
+            document.getElementById('linksPage').style.display = 'block';
+        }
+
+        function goBack() {
+            document.getElementById('menuPage').style.display = 'none';
+            document.getElementById('linksPage').style.display = 'none';
+            document.getElementById('landingPage').style.display = 'block';
+        }
+
         function loadPdf() {
             const iframe = document.getElementById('pdfViewer');
             iframe.src = 'https://drive.google.com/file/d/17lQw-727Z_MBzA7s3uXJXY3fQO8qZHTq/preview';
