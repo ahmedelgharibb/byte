@@ -3,22 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Café Menu</title>
     <style>
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
         }
         iframe {
             width: 100%;
-            height: 100%;
+            height: 500px;
             border: none;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <iframe src="https://drive.google.com/file/d/17lQw-727Z_MBzA7s3uXJXY3fQO8qZHTq/view"></iframe>
+    <div class="container">
+        <h1>Café Menu</h1>
+        <p>Click the button below to view the PDF menu.</p>
+        <a href="#" class="button" onclick="loadPdf()">View PDF</a>
+        <iframe id="pdfViewer" style="display:none;"></iframe>
+    </div>
+
+    <script>
+        function loadPdf() {
+            const iframe = document.getElementById('pdfViewer');
+            iframe.src = 'https://drive.google.com/file/d/17lQw-727Z_MBzA7s3uXJXY3fQO8qZHTq/preview';
+            iframe.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
