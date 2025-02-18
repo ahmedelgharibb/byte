@@ -3,117 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Café</title>
+    <title>Artisan Café</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&display=swap');
 
         :root {
-            --primary-bg: white;
-            --primary-text: #ffffff; /* Changed to white */
-            --secondary-bg: #003366; /* Dark blue */
-            --button-bg: #ffffff; /* Changed to white */
-            --button-text: #000000; /* Changed to black */
-            --hover-bg: #f0f0f0; /* Light grey for hover */
-            --highlight-color: #003366;
+            --primary-bg: #f4f1de;
+            --primary-text: #3d405b;
+            --secondary-bg: rgba(129, 178, 154, 0.8);
+            --button-bg: #f2cc8f;
+            --button-text: #3d405b;
+            --hover-bg: #e07a5f;
+            --highlight-color: #e07a5f;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            --glass-border: rgba(255, 255, 255, 0.2);
         }
 
         body {
             margin: 0;
             padding: 0;
             width: 100%;
-            height: 100%;
+            height: 100vh;
             font-family: 'Poppins', sans-serif;
             background: var(--primary-bg);
-            color: var(--primary-text); /* Text color set to white */
+            color: var(--primary-text);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            transition: background 0.3s, color 0.3s;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            animation: fadeInBackground 2s ease-in-out;
         }
+
+        @keyframes fadeInBackground {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .logo-container {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 30px;
+            animation: float 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-15px); }
+        }
+
         .logo {
-            width: 120px;
-            margin-bottom: 20px;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--highlight-color);
+            box-shadow: var(--shadow);
+            animation: pulse 2s infinite;
         }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
         .container {
             width: 90%;
             max-width: 800px;
             background: var(--secondary-bg);
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            margin-top: 150px;
-            color: var(--primary-text); /* Ensure text inside container is white */
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            margin-top: 20px;
+            color: var(--primary-text);
+            animation: slideUp 1s ease-in-out;
         }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .button {
             display: block;
-            width: 200px;
-            margin: 10px auto;
-            padding: 12px;
-            background: var(--button-bg); /* White background */
-            color: var(--button-text); /* Black text */
+            width: 220px;
+            margin: 15px auto;
+            padding: 15px;
+            background: var(--button-bg);
+            color: var(--button-text);
             text-decoration: none;
             border-radius: 30px;
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 2px solid var(--highlight-color);
+            border: none;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
         }
+
         .button:hover {
-            background: var(--hover-bg); /* Light grey on hover */
+            background: var(--hover-bg);
+            color: white;
+            transform: translateY(-5px) scale(1.05);
         }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--primary-text);
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        p {
+            font-size: 1.1rem;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 20px;
+            margin-top: 20px;
         }
+
         .social-icons a {
             background: var(--highlight-color);
-            padding: 10px;
+            padding: 12px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            transition: all 0.3s ease;
+            width: 50px;
+            height: 50px;
+            transition: transform 0.3s ease, background 0.3s ease;
+            box-shadow: var(--shadow);
         }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+            background: var(--hover-bg);
+        }
+
         .social-icons img {
-            width: 22px;
-            height: 22px;
+            width: 24px;
+            height: 24px;
         }
     </style>
 </head>
 <body>
-    <img src="YOUR_LOGO_URL_HERE" alt="Café Logo" class="logo">
+    <div class="logo-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5dYljuVuVtQ6vsh_hKkZYkNHWJu8szPyG2g&s" alt="Café Logo" class="logo">
+    </div>
     
     <div class="container" id="landingPage">
-        <h1>Welcome to Our Café</h1>
-        <p>Choose an option:</p>
+        <h1>Welcome to Artisan Café</h1>
+        <p>Experience the finest coffee and pastries in town. Choose an option to explore more:</p>
         <button class="button" onclick="showMenu()">View Menu</button>
         <button class="button" onclick="showLinks()">View Links</button>
     </div>
     
     <div class="container" id="menuPage" style="display:none;">
         <h1>Café Menu</h1>
-        <p>Click the button below to view the PDF menu.</p>
+        <p>Discover our delicious offerings. Click below to view the full menu.</p>
         <button class="button" onclick="loadPdf()">View PDF</button>
-        <iframe id="pdfViewer" style="width:100%; height:500px; border:none; display:none;"></iframe>
+        <iframe id="pdfViewer" style="display:none;"></iframe>
         <button class="button" onclick="goBack()">Back</button>
     </div>
 
     <div class="container" id="linksPage" style="display:none;">
         <h1>Our Links</h1>
-        <p>Follow us on social media:</p>
+        <p>Stay connected with us on social media:</p>
         <div class="social-icons">
-            <a href="https://instagram.com" target="_blank">
+            <a href="instagram://user?username=your_username" onclick="window.location.href='https://instagram.com/your_username'; return false;">
                 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
             </a>
-            <a href="https://facebook.com" target="_blank">
+            <a href="fb://profile/your_page_id" onclick="window.location.href='https://facebook.com/your_page_id'; return false;">
                 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111392.png" alt="Facebook">
             </a>
         </div>
