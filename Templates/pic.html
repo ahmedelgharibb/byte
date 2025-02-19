@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan Café</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&display=swap');
+
+        :root {
+            --primary-bg: #f5f5f5; /* Light gray background (elegant and neutral) */
+            --primary-text: #333333; /* Dark gray text (high contrast for readability) */
+            --secondary-bg: rgba(255, 255, 255, 0.9); /* Semi-transparent white for containers */
+            --button-bg: #8c7b6d; /* Muted taupe for buttons (sophisticated and neutral) */
+            --button-text: #ffffff; /* White text on buttons (clean and modern) */
+            --hover-bg: #6b5b4f; /* Darker taupe for hover effects (subtle and elegant) */
+            --highlight-color: #a89f94; /* Light taupe for highlights (soft and refined) */
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            --glass-border: rgba(255, 255, 255, 0.2); /* Glass border */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            background: var(--primary-bg);
+            color: var(--primary-text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1950&q=80'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            animation: fadeInBackground 2s ease-in-out;
+        }
+
+        @keyframes fadeInBackground {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .logo-container {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 30px;
+            animation: float 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-15px); }
+        }
+
+        .logo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--highlight-color);
+            box-shadow: var(--shadow);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: var(--secondary-bg);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            margin-top: 20px;
+            color: var(--primary-text);
+            animation: slideUp 1s ease-in-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .button {
+            display: block;
+            width: 220px;
+            margin: 15px auto;
+            padding: 15px;
+            background: var(--button-bg);
+            color: var(--button-text);
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button:hover {
+            background: var(--hover-bg);
+            color: white;
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--primary-text);
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        p {
+            font-size: 1.1rem;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            background: var(--highlight-color);
+            padding: 12px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            transition: transform 0.3s ease, background 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+            background: var(--hover-bg);
+        }
+
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* PDF Viewer Styling */
+        #pdfViewer {
+            width: 100%;
+            height: 500px; /* Adjust height as needed */
+            border: none;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            overflow-y: scroll; /* Make the PDF viewer scrollable */
+        }
+
+        /* Additional Styling for Phone and Location */
+        .contact-info {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: var(--primary-text);
+        }
+
+        .contact-info a {
+            color: var(--button-bg);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--hover-bg);
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img id="cafeLogo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDh9rTjjFXQvQfZIYvpje_KBoBSdyoagoSuw&s" alt="Café Logo" class="logo">
+    </div>
+    
+    <div class="container" id="landingPage">
+        <h1>Welcome to Toby's Estate Café</h1>
+        <p>Experience the finest coffee and pastries in town. Choose an option to explore more:</p>
+        <button class="button" onclick="showMenu()">View Menu</button>
+        <button class="button" onclick="showLinks()">View Links</button>
+    </div>
+    
+    <div class="container" id="menuPage" style="display:none;">
+        <h1>Café Menu</h1>
+        <p>Discover our delicious offerings:</p>
+        <iframe id="pdfViewer" src="https://drive.google.com/file/d/17lQw-727Z_MBzA7s3uXJXY3fQO8qZHTq/preview"></iframe>
+        <button class="button" onclick="goBack()">Back</button>
+    </div>
+
+    <div class="container" id="linksPage" style="display:none;">
+        <h1>Our Links</h1>
+        <p>Stay connected with us on social media:</p>
+        <div class="social-icons">
+            <a href="https://instagram.com" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+            </a>
+            <a href="https://facebook.com" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111392.png" alt="Facebook">
+            </a>
+            <a href="https://www.tobysestate.com.au/?srsltid=AfmBOoraLNLk8_A7g6ELJR_kqJoS0nkWEGCplQ5RkbQRF-MhxY8N6vsO" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/3037/3037366.png" alt="Website">
+            </a>
+        </div>
+        <div class="contact-info">
+            <p>Phone: <a href="tel:+1300 074 178">+1300 074 178</a></p>
+            <p>Location: <a href="https://maps.app.goo.gl/hEeQHJ6bpDaVn8RP9?g_st=com.google.maps.preview.copy" target="_blank">123 Café Street, City, Country</a></p>
+        </div>
+        <button class="button" onclick="goBack()">Back</button>
+    </div>
+    
+    <script>
+        // Define variables for easy customization
+        const primaryBg = '#f5f5f5'; // Light gray background (elegant and neutral)
+        const primaryText = '#333333'; // Dark gray text (high contrast for readability)
+        const secondaryBg = 'rgba(255, 255, 255, 0.9)'; // Semi-transparent white for containers
+        const buttonBg = '#8c7b6d'; // Muted taupe for buttons (sophisticated and neutral)
+        const buttonText = '#ffffff'; // White text on buttons (clean and modern)
+        const hoverBg = '#6b5b4f'; // Darker taupe for hover effects (subtle and elegant)
+        const highlightColor = '#a89f94'; // Light taupe for highlights (soft and refined)
+        const cafeLogo = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDh9rTjjFXQvQfZIYvpje_KBoBSdyoagoSuw&s'; // Café logo URL
+        const pdfLink = 'https://drive.google.com/file/d/1Jc-HxtKP0N1K_0wRJpcitGxeHRTBbYka/view?usp=sharing'; // PDF link
+
+        // Apply the variables to the CSS
+        document.documentElement.style.setProperty('--primary-bg', primaryBg);
+        document.documentElement.style.setProperty('--primary-text', primaryText);
+        document.documentElement.style.setProperty('--secondary-bg', secondaryBg);
+        document.documentElement.style.setProperty('--button-bg', buttonBg);
+        document.documentElement.style.setProperty('--button-text', buttonText);
+        document.documentElement.style.setProperty('--hover-bg', hoverBg);
+        document.documentElement.style.setProperty('--highlight-color', highlightColor);
+
+        // Set the café logo
+        document.getElementById('cafeLogo').src = cafeLogo;
+
+        function showMenu() {
+            document.getElementById('landingPage').style.display = 'none';
+            document.getElementById('menuPage').style.display = 'block';
+        }
+
+        function showLinks() {
+            document.getElementById('landingPage').style.display = 'none';
+            document.getElementById('linksPage').style.display = 'block';
+        }
+
+        function goBack() {
+            document.getElementById('menuPage').style.display = 'none';
+            document.getElementById('linksPage').style.display = 'none';
+            document.getElementById('landingPage').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
