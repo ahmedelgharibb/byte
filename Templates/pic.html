@@ -23,7 +23,7 @@
             margin: 0;
             padding: 0;
             width: 100%;
-            height: 100vh;
+            min-height: 100vh; /* Ensure body takes at least the full viewport height */
             font-family: 'Poppins', sans-serif;
             background: var(--primary-bg);
             color: var(--primary-text);
@@ -32,12 +32,12 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            overflow: hidden;
             background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1950&q=80'); /* Background image */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             animation: fadeInBackground 2s ease-in-out;
+            overflow-y: auto; /* Make the entire page scrollable */
         }
 
         @keyframes fadeInBackground {
@@ -82,9 +82,10 @@
             border-radius: 20px;
             backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
-            margin-top: 20px;
+            margin: 20px auto; /* Center the container and add margin */
             color: var(--primary-text);
             animation: slideUp 1s ease-in-out;
+            overflow-y: auto; /* Make the container scrollable */
         }
 
         @keyframes slideUp {
@@ -173,7 +174,7 @@
             margin-top: 20px;
             border-radius: 10px;
             box-shadow: var(--shadow);
-            overflow-y: scroll; /* Make the PDF viewer scrollable */
+            overflow-y: auto; /* Make the PDF viewer scrollable */
         }
 
         /* Additional Styling for Phone and Location */
@@ -192,6 +193,21 @@
         .contact-info a:hover {
             color: var(--hover-bg);
         }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem; /* Smaller heading for mobile */
+            }
+
+            .container {
+                padding: 20px; /* Reduce padding for smaller screens */
+            }
+
+            #pdfViewer {
+                height: 300px; /* Smaller height for mobile */
+            }
+        }
     </style>
 </head>
 <body>
@@ -209,7 +225,7 @@
     <div class="container" id="menuPage" style="display:none;">
         <h1>Café Menu</h1>
         <p>Discover our delicious offerings:</p>
-        <iframe id="pdfViewer" src="https://drive.google.com/file/d/17lQw-727Z_MBzA7s3uXJXY3fQO8qZHTq/preview"></iframe>
+        <iframe id="pdfViewer" src="https://drive.google.com/file/d/1Jc-HxtKP0N1K_0wRJpcitGxeHRTBbYka/preview"></iframe>
         <button class="button" onclick="goBack()">Back</button>
     </div>
 
@@ -228,8 +244,8 @@
             </a>
         </div>
         <div class="contact-info">
-            <p>Phone: <a href="tel:+1300 074 178">+1300 074 178</a></p>
-            <p>Location: <a href="https://maps.app.goo.gl/hEeQHJ6bpDaVn8RP9?g_st=com.google.maps.preview.copy" target="_blank">123 Café Street, City, Country</a></p>
+            <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
+            <p>Location: <a href="https://maps.google.com" target="_blank">123 Café Street, City, Country</a></p>
         </div>
         <button class="button" onclick="goBack()">Back</button>
     </div>
@@ -244,7 +260,6 @@
         const hoverBg = '#6b5b4f'; // Darker taupe for hover effects (subtle and elegant)
         const highlightColor = '#a89f94'; // Light taupe for highlights (soft and refined)
         const cafeLogo = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDh9rTjjFXQvQfZIYvpje_KBoBSdyoagoSuw&s'; // Café logo URL
-        const pdfLink = 'https://drive.google.com/file/d/1Jc-HxtKP0N1K_0wRJpcitGxeHRTBbYka/view?usp=sharing'; // PDF link
 
         // Apply the variables to the CSS
         document.documentElement.style.setProperty('--primary-bg', primaryBg);
