@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Information</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .password-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+        }
+
+        .password-box {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .password-box h2 {
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .password-box .form-group {
+            margin-bottom: 20px;
+        }
+
+        .password-box .btn {
+            width: 100%;
+        }
+
+        #edit-form {
+            display: none;
+            padding: 40px 0;
+        }
+
+        #edit-form .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="password-container">
+        <div class="password-box">
+            <h2>Edit Information</h2>
+            <form id="password-form">
+                <div class="form-group">
+                    <label for="password">Enter Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="edit-form">
+        <div class="container">
+            <h2>Edit Content</h2>
+            <form id="content-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Dr. John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" class="form-control" placeholder="MBBS, MD | Cardiologist" required>
+                </div>
+                <div class="form-group">
+                    <label for="about">About</label>
+                    <textarea id="about" class="form-control" placeholder="About Dr. John Doe" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="specialty">Specialty</label>
+                    <input type="text" id="specialty" class="form-control" placeholder="Interventional Cardiology" required>
+                </div>
+                <div class="form-group">
+                    <label for="experience">Experience</label>
+                    <input type="text" id="experience" class="form-control" placeholder="15+ Years" required>
+                </div>
+                <div class="form-group">
+                    <label for="education">Education</label>
+                    <input type="text" id="education" class="form-control" placeholder="Harvard Medical School" required>
+                </div>
+                <div class="form-group">
+                    <label for="languages">Languages</label>
+                    <input type="text" id="languages" class="form-control" placeholder="English, Spanish" required>
+                </div>
+                <button type="submit" class="btn">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Password Authentication
+        const passwordForm = document.getElementById('password-form');
+        const editForm = document.getElementById('edit-form');
+        const correctPassword = 'admin123'; // Set your password here
+
+        passwordForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const password = document.getElementById('password').value;
+
+            if (password === correctPassword) {
+                passwordForm.style.display = 'none';
+                editForm.style.display = 'block';
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        });
+
+        // Pre-fill the form with current data
+        document.addEventListener('DOMContentLoaded', () => {
+            const name = localStorage.getItem('name') || "Dr. John Doe";
+            const title = localStorage.getItem('title') || "MBBS, MD | Cardiologist";
+            const about = localStorage.getItem('about') || "Dr. John Doe is a board-certified cardiologist with over 15 years of experience...";
+            const specialty = localStorage.getItem('specialty') || "Interventional Cardiology";
+            const experience = localStorage.getItem('experience') || "15+ Years";
+            const education = localStorage.getItem('education') || "Harvard Medical School";
+            const languages = localStorage.getItem('languages') || "English, Spanish";
+
+            document.getElementById('name').value = name;
+            document.getElementById('title').value = title;
+            document.getElementById('about').value = about;
+            document.getElementById('specialty').value = specialty;
+            document.getElementById('experience').value = experience;
+            document.getElementById('education').value = education;
+            document.getElementById('languages').value = languages;
+        });
+
+        // Save Changes
+        const contentForm = document.getElementById('content-form');
+
+        contentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const title = document.getElementById('title').value;
+            const about = document.getElementById('about').value;
+            const specialty = document.getElementById('specialty').value;
+            const experience = document.getElementById('experience').value;
+            const education = document.getElementById('education').value;
+            const languages = document.getElementById('languages').value;
+
+            // Save changes to localStorage
+            localStorage.setItem('name', name);
+            localStorage.setItem('title', title);
+            localStorage.setItem('about', about);
+            localStorage.setItem('specialty', specialty);
+            localStorage.setItem('experience', experience);
+            localStorage.setItem('education', education);
+            localStorage.setItem('languages', languages);
+
+            alert('Changes saved successfully!');
+            window.location.href = 'index.html'; // Redirect to the main page
+        });
+    </script>
+</body>
+</html>

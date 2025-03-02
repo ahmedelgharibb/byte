@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. John Doe - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div>
+                    <h1>Dr. John Doe</h1>
+                    <p>MBBS, MD | Cardiologist</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#schedule">Schedule</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- Add the Edit Information Button -->
+            <a href="edit.html" class="btn edit-btn">Edit Information</a>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Expert Cardiac Care</h2>
+                <p>Providing compassionate and cutting-edge treatment for your heart health.</p>
+                <a href="#contact" class="btn">Schedule Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="/api/placeholder/400/500" alt="Dr. John Doe">
+                </div>
+                <div class="about-text">
+                    <h2>About Dr. John Doe</h2>
+                    <p>Dr. John Doe is a board-certified cardiologist with over 15 years of experience in diagnosing and treating heart-related conditions. He combines cutting-edge medical knowledge with compassionate patient care to provide the best possible outcomes.</p>
+                    <p>After graduating with honors from Harvard Medical School, Dr. Doe completed his residency at Massachusetts General Hospital and fellowship training at the Cleveland Clinic. He has published numerous research papers in prestigious medical journals and is committed to staying at the forefront of cardiac care.</p>
+                    <div class="doctor-info">
+                        <div class="info-item">
+                            <p><span>Specialty:</span> Interventional Cardiology</p>
+                        </div>
+                        <div class="info-item">
+                            <p><span>Experience:</span> 15+ Years</p>
+                        </div>
+                        <div class="info-item">
+                            <p><span>Education:</span> Harvard Medical School</p>
+                        </div>
+                        <div class="info-item">
+                            <p><span>Languages:</span> English, Spanish</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Specialized Services</h2>
+            <div class="services-grid">
+                <div class="service">
+                    <div class="service-icon">❤️</div>
+                    <div class="service-content">
+                        <h3>Cardiac Consultation</h3>
+                        <p>Comprehensive evaluation and personalized management plans for various heart conditions including coronary artery disease, heart failure, and arrhythmias.</p>
+                    </div>
+                </div>
+                <div class="service">
+                    <div class="service-icon">📊</div>
+                    <div class="service-content">
+                        <h3>Advanced Diagnostics</h3>
+                        <p>State-of-the-art cardiac imaging including echocardiography, stress testing, and cardiac CT to accurately diagnose heart conditions.</p>
+                    </div>
+                </div>
+                <div class="service">
+                    <div class="service-icon">🛡️</div>
+                    <div class="service-content">
+                        <h3>Preventive Cardiology</h3>
+                        <p>Evidence-based strategies to assess cardiovascular risk and prevent heart disease through lifestyle modifications and medical interventions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule">
+        <div class="container">
+            <h2>Weekly Schedule</h2>
+            <p>Find me at different clinics throughout the week. Appointments can be scheduled through the contact form or by calling the respective clinic directly.</p>
+            <div class="schedule-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Clinic</th>
+                            <th>Hours</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monday</td>
+                            <td class="clinic-name">City Heart Clinic</td>
+                            <td>9:00 AM - 5:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Tuesday</td>
+                            <td class="clinic-name">Green Valley Hospital</td>
+                            <td>10:00 AM - 4:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Wednesday</td>
+                            <td class="clinic-name">City Heart Clinic</td>
+                            <td>9:00 AM - 5:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Thursday</td>
+                            <td class="clinic-name">Sunrise Medical Center</td>
+                            <td>11:00 AM - 6:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Friday</td>
+                            <td class="clinic-name">City Heart Clinic</td>
+                            <td>9:00 AM - 5:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Saturday</td>
+                            <td class="clinic-name">Green Valley Hospital</td>
+                            <td>10:00 AM - 2:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Sunday</td>
+                            <td class="closed">Closed</td>
+                            <td class="closed">Closed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>(555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>drjohndoe@example.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🏢</div>
+                        <div class="contact-details">
+                            <h4>Main Office</h4>
+                            <p>City Heart Clinic<br>123 Medical Plaza Dr.<br>Suite 456<br>City, State 12345</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div class="contact-details">
+                            <h4>Office Hours</h4>
+                            <p>Monday - Friday: 9:00 AM - 5:00 PM<br>Saturday: 10:00 AM - 2:00 PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Dr. John Doe</h3>
+                    <p>Dedicated to cardiac excellence</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link">📘</a>
+                    <a href="#" class="social-link">📱</a>
+                    <a href="#" class="social-link">📸</a>
+                    <a href="#" class="social-link">💼</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Dr. John Doe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Load saved data from localStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            const name = localStorage.getItem('name') || "Dr. John Doe";
+            const title = localStorage.getItem('title') || "MBBS, MD | Cardiologist";
+            const about = localStorage.getItem('about') || "Dr. John Doe is a board-certified cardiologist with over 15 years of experience...";
+            const specialty = localStorage.getItem('specialty') || "Interventional Cardiology";
+            const experience = localStorage.getItem('experience') || "15+ Years";
+            const education = localStorage.getItem('education') || "Harvard Medical School";
+            const languages = localStorage.getItem('languages') || "English, Spanish";
+
+            // Update the DOM with the saved data
+            document.getElementById('name').textContent = name;
+            document.getElementById('title').textContent = title;
+            document.getElementById('about-title').textContent = `About ${name}`;
+            document.getElementById('about-description').textContent = about;
+            document.getElementById('specialty').textContent = specialty;
+            document.getElementById('experience').textContent = experience;
+            document.getElementById('education').textContent = education;
+            document.getElementById('languages').textContent = languages;
+        });
+    </script>
+</body>
+</html>
